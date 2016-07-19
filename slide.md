@@ -22,7 +22,7 @@ class: middle
 ---
 # 資料とコード↓に置きました
 ### [https://knakayama.github.io/LT-2016-07-22](https://knakayama.github.io/LT-2016-07-22)
-### [https://knakayama.github.io/lambda-auto-scaling-spotfleet-based-on-cpu-usage](https://knakayama.github.io/lambda-auto-scaling-spotfleet-based-on-cpu-usage)
+### [https://github.com/knakayama/lambda-auto-scaling-spot-fleet-based-on-cpu-usage](https://github.com/knakayama/lambda-auto-scaling-spot-fleet-based-on-cpu-usage)
 
 ---
 layout: true
@@ -38,7 +38,7 @@ class: middle
 ---
 ## 1. スポットフリートについて
 ## 2. Lambda関数について
-## 3. Demo
+## 3. やってみた
 
 ---
 layout: true
@@ -66,7 +66,7 @@ class: middle
 ### スポットリクエスト(入札方式)には2種類ある(一時/永続)
 ### 即terminateさせない仕組み(スポットブロック)もある
 ### オンデマンドインスタンスに比べて起動が遅い
-### ステートレスにしてterminateに備える必要あり
+### サーバをステートレスにしてterminateに備える必要あり
 ### terminateの2分前に警告してくれる(メタデータで取得可能)
 
 ---
@@ -89,13 +89,13 @@ class: middle
 ### スポットインスタンスの希望台数(capacity)を指定可能
 ### capacityを維持するようにいい感じに調整してくれる
 ### 例 あるリクエストが無効になったら別のリクエストで起動
-### インスタンスの配分戦略は2つ(lowestprice/diversified)
-### 特定のリクエストに重み付け(WeightedCapacity)可能
-### 重みが小さいリクエストを優先して起動させる
 
 ---
+### インスタンスの配分(起動)方法を指定可能
+### 配分戦略は2つ(lowestprice/diversified)
+### 特定のリクエストに重み付け(WeightedCapacity)可能
+### 重みが小さいリクエストを優先して起動させる(デフォルト1)
 ### 入札価格はリクエストに応じて2種類指定可能(全体/特定)
-todo
 
 ---
 layout: true
@@ -109,9 +109,6 @@ class: center, middle
 # Lambda関数について
 
 ---
-# 知ってる人も多いと思うので軽く流します
-
----
 layout: true
 class: middle
 
@@ -121,14 +118,14 @@ class: middle
 ### 処理時間単位の従量課金製なのでEC2より圧倒的にお得
 ### 現時点でNode.js/Python/Javaに対応
 ### 他AWSサービスとの連携も可能
-### 例 S3にデータ保存したらLambdaで圧縮
+### 例 S3にデータ保存したらLambda起動してデータ変換
 
 ---
 layout: true
 class: center, middle
 
 ---
-# Demo
+# やってみた
 ### スポットフリートをオートスケールさせてみる
 
 ---
