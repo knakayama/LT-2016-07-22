@@ -16,13 +16,8 @@ class: center, middle
 # クラスメソッド![classmethod](https://pbs.twimg.com/profile_images/344513261567475947/516b99bf0b40c0354dfad345ef14051a_400x400.png)<br/>AWSコンサルティング部<br/>所属
 
 ---
-layout: true
-class: middle
-
----
-# 資料とコード↓に置きました
+# 今日の資料↓に置いときました
 ### [https://knakayama.github.io/LT-2016-07-22](https://knakayama.github.io/LT-2016-07-22)
-### [https://github.com/knakayama/lambda-auto-scaling-spot-fleet-based-on-cpu-usage](https://github.com/knakayama/lambda-auto-scaling-spot-fleet-based-on-cpu-usage)
 
 ---
 layout: true
@@ -63,6 +58,22 @@ class: middle
 ### オンデマンドインスタンスよりコストを大幅に抑えられる
 
 ---
+layout: true
+class: center, middle
+
+---
+## 入札成功パターン<br/><br/>
+![spot_request_success](images/spot_request_success.png)
+
+---
+## 入札失敗パターン<br/><br/>
+![spot_request_fail](images/spot_request_fail.png)
+
+---
+layout: true
+class: middle
+
+---
 ### スポットリクエスト(入札方式)には2種類ある(一時/永続)
 ### 即terminateさせない仕組み(スポットブロック)もある
 ### オンデマンドインスタンスに比べて起動が遅い
@@ -89,6 +100,18 @@ class: middle
 ### スポットインスタンスの希望台数(capacity)を指定可能
 ### capacityを維持するようにいい感じに調整してくれる
 ### 例 あるリクエストが無効になったら別のリクエストで起動
+
+---
+layout: true
+class: center, middle
+
+---
+### スポットフリートイメージ図<br/><br/>
+![spot_fleet](images/spot_fleet.png)
+
+---
+layout: true
+class: middle
 
 ---
 ### インスタンスの配分(起動)方法を指定可能
@@ -129,8 +152,23 @@ class: center, middle
 ### スポットフリートをオートスケールさせてみる
 
 ---
+layout: true
+class: middle
+
+---
+### スポットフリートはASGと少し似ている
+### でも決定的に違うところがある
+### オートスケールに標準で対応してない点
+### そこをLambda関数を利用してオートスケールさせる
+
+---
+layout: true
+class: center, middle
+
+---
 ### 構成図
 ![aws](images/aws.png)
+#### [https://github.com/knakayama/lambda-auto-scaling-spot-fleet-based-on-cpu-usage](https://github.com/knakayama/lambda-auto-scaling-spot-fleet-based-on-cpu-usage)
 
 ---
 ### 細かい使い方とかは↓見てください

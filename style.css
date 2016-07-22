@@ -106,5 +106,9 @@ img[alt=devio] {
 }
 
 img[alt=aws] {
-  width: 550px;
+  width: 530px;
+}
+
+img[alt=spot_request_success], img[alt=spot_request_fail], img[alt=spot_fleet] {
+  width: 700px;
 }
